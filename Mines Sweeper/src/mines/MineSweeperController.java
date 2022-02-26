@@ -9,10 +9,13 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseDragEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
@@ -26,6 +29,7 @@ public class MineSweeperController {
 						// smaller
 	private Stage primaryStage;// need to save in order to resize the stage whenever the board gets bigger or
 								// smaller
+	private MusicP music = new MusicP("C:\\Users\\Eitan\\git\\Mines_Sweeper\\Mines Sweeper\\src\\mines\\musicmp3.mp3");
 	
 	private boolean gameflag = true;
 	@FXML
@@ -33,14 +37,30 @@ public class MineSweeperController {
 
 	@FXML
 	private TextField minesBox;
-
-	@FXML
-	private Button reset;
-    
+	
 	@FXML
 	private TextField widthBox;
-
 	
+	@FXML
+	private Button reset;
+
+    @FXML
+    private Button muteButton;
+    
+    @FXML
+    private Slider volumeSlider;
+	
+    @FXML
+    void muteMine(ActionEvent event) {
+    	if(muteButton.getText().equals("Mute Music")) {
+    		muteButton.setText("Unmute Music");
+    		music.stop();    	}
+    	else {
+    		muteButton.setText("Mute Music");
+    		music.start();
+    	}
+    }
+    
 	@FXML
 	void resetMine(ActionEvent event) {
 		height = Integer.parseInt(heightBox.getText());// get text form text box
@@ -49,6 +69,12 @@ public class MineSweeperController {
 		mine = new Mines( width,height, numMines);// generate new mine logic
 		mineGrid = addGrid();// generate new mine grid
 	}
+	
+    @FXML
+    void adjustVolume(MouseEvent event) {
+    	//System.out.println(volumeSlider.getValue());
+    	music.setVolume(volumeSlider.getValue());
+    }
 
 	// Returns a representation of a the current mine
 	Mines getMine() {
@@ -57,6 +83,7 @@ public class MineSweeperController {
 
 	// used from the MinesFx class to to get the main GridPane
 	protected GridPane getNewGrid() {
+		this.music = music;
 		return addGrid();// call add grid to generate a grid and return it
 	}
 	// this method is necessary to allow us to resize the window when trying to
