@@ -13,9 +13,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseDragEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
@@ -29,7 +27,7 @@ public class MineSweeperController {
 						// smaller
 	private Stage primaryStage;// need to save in order to resize the stage whenever the board gets bigger or
 								// smaller
-	private MusicP music = new MusicP("C:\\Users\\Eitan\\git\\Mines_Sweeper\\Mines Sweeper\\src\\mines\\musicmp3.mp3");
+	private MusicP music = new MusicP("src/mines/musicmp3.mp3");//music player for the game
 	
 	private boolean gameflag = true;
 	@FXML
@@ -52,12 +50,13 @@ public class MineSweeperController {
 	
     @FXML
     void muteMine(ActionEvent event) {
-    	if(muteButton.getText().equals("Mute Music")) {
-    		muteButton.setText("Unmute Music");
-    		music.stop();    	}
+    	if(muteButton.getText().equals("Mute Music")) {//if button is pressed and music is playing
+    		muteButton.setText("Unmute Music");//the change to unmute
+    		music.stop();   	//stop the music
+		}
     	else {
-    		muteButton.setText("Mute Music");
-    		music.start();
+    		muteButton.setText("Mute Music");//set text to Mute
+    		music.start();	//start the music from the same point
     	}
     }
     
@@ -72,18 +71,11 @@ public class MineSweeperController {
 	
     @FXML
     void adjustVolume(MouseEvent event) {
-    	//System.out.println(volumeSlider.getValue());
-    	music.setVolume(volumeSlider.getValue());
+    	music.setVolume(volumeSlider.getValue());//sets the volume for the game
     }
-
-	// Returns a representation of a the current mine
-	Mines getMine() {
-		return mine;
-	}
-
+    
 	// used from the MinesFx class to to get the main GridPane
 	protected GridPane getNewGrid() {
-		this.music = music;
 		return addGrid();// call add grid to generate a grid and return it
 	}
 	// this method is necessary to allow us to resize the window when trying to

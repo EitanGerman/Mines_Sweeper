@@ -10,12 +10,12 @@ public class MusicP {
 	public MusicP(String path) {
         Media media = new Media(Paths.get(path).toUri().toString());  
         mediaPlayer = new MediaPlayer(media);  
-        mediaPlayer.setAutoPlay(true); 
+        mediaPlayer.setCycleCount(Integer.MAX_VALUE);
         mediaPlayer.play();
 	}
 	
 	public void stop() {
-		mediaPlayer.stop();
+		mediaPlayer.pause();
 	}
 	
 	public void start() {
