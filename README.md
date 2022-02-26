@@ -7,6 +7,7 @@ This is a simple game of Mines Sweeper made using javafx
 <br />A box with a flag on it cannot be opened manually
 <br />There is a background music for the game that can be muted or volume adjusted as you wish
 <br />A game is won by openig all the boxes that do not contain a bomb undeer them, falgs are for your own convinience
+<br />When a game is won a popup will appear to notify you
 <br />If you opened a bomb the game is over and you need to press "Reset" to restart the game
 <br />Each new generated mine is different and completely random
 <br />![image](https://github.com/EitanGerman/Mines_Sweeper/blob/master/Mines%20Sweeper/src/demo/MinesSweeper.gif?raw=true)
