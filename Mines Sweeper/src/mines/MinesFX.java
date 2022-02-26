@@ -18,7 +18,6 @@ public class MinesFX extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		MineSweeperController controller;
-		MusicP music = new MusicP("musicmp3.mp3");
 		try {
 			FXMLLoader root = new FXMLLoader(); 
 			root.setLocation(getClass().getResource("MineSweeper.fxml"));//set location for the fxml file
