@@ -13,9 +13,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseDragEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
@@ -83,7 +81,6 @@ public class MineSweeperController {
 
 	// used from the MinesFx class to to get the main GridPane
 	protected GridPane getNewGrid() {
-		this.music = music;
 		return addGrid();// call add grid to generate a grid and return it
 	}
 	// this method is necessary to allow us to resize the window when trying to
