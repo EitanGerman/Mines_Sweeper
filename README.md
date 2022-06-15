@@ -11,3 +11,4 @@ This is a simple game of Mines Sweeper made using javafx
 <br />If you opened a bomb the game is over and you need to press "Reset" to restart the game
 <br />Each new generated mine is different and completely random
 <br />![image](https://github.com/EitanGerman/Mines_Sweeper/blob/master/Mines%20Sweeper/src/demo/MinesSweeper.gif?raw=true)
+This is Hanil editing Eitans repo heheheh
